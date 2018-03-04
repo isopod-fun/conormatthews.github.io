@@ -20,6 +20,20 @@
      text-align: center;
   }
   </style>
+  <script>
+function clickCounter() {
+    if(typeof(Storage) !== "undefined") {
+        if (localStorage.clickcount) {
+            localStorage.clickcount = Number(localStorage.clickcount)+1;
+        } else {
+            localStorage.clickcount = 1;
+        }
+        document.getElementById("result").innerHTML = "You have clicked the button " + localStorage.clickcount + " time(s).";
+    } else {
+        document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+    }
+}
+</script>
 </head>
 
 <body>
@@ -28,6 +42,9 @@
   <h2 style="text-align: left;"><span style="text-decoration: underline;">Pages:</span></h2>
   <h3 style="text-align: left;"><a title="Revision" href="pages/revision.html">Revision</a></h3>
   <h3 style="text-align: left;"><a title="Example 360 Images" href="pages/ex360img.html">Example 360 Images</a></h3>
+  <p></p>
+  <p><button onclick="clickCounter()" type="button">Click me!</button></p>
+  <div id="result"></div>
   </blockquote>
   <div class="footer">
     <marquee>This is my website, I don't need a website but I made one anyway.         Check out my twitter @Conor_Matt and I hate most other social media platforms.</marquee>
